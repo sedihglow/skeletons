@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 
 	printf("\ndid_it = %d, argc = %d, optind = %d\n", did_it, argc, optind);
 
+
 	if (optind >= argc) {
 		printf("Expected argument after options? optind >= argc.");
 		exit(EXIT_FAILURE);
