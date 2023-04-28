@@ -1,0 +1,41 @@
+make manual: https://www.gnu.org/software/make/manual/make.pdf
+
+started from section 6.3.1
+
+looked into this from the basic_makefile line of code
+:
+SRCS=$(wildcard ./src/*.c) # $(wildcard ../shared/src/*.c)
+OBJS=$(SRCS:.c=.o)
+:
+
+# -- Substitution References --
+'$(var:a=b)' == '${var:a=b}'
+
+A substitution reference subsitutes the value of a variable with alterations
+that are specified.
+
+The syntax's ($(var:a=b)) meaning is to take the value of variable var, and
+replace every a at the end of a word with b in var's value then substitute
+in the resulting string.
+
+"At the end of a word" means that a must appear either followed by a whitespace
+or at the end of the value to be replaced, otherwise no alteration to a will
+occur.
+
+- example
+  foo := a.o b.o l.a c.o
+  bar := $(foo:.o=.c)
+
+  result: bar is = a.c b.c l.a c.c
+-
+
+
+Above syntax for a substituation reference is shorthand for using patsubst to
+do the replacement. The equivalence is shown below:
+
+'$(var:a=b)' is equiv to '$(patsubst %a,%b,var)'
+
+Both ways to do the substitution are provided in make for compatibility with
+other implementations of make.
+
+

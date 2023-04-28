@@ -1,0 +1,61 @@
+$ make -p, shows the list of default targets, recipes, env vars, all the shit.
+		   It differs in some defaults system to system (linux vs win etc.) so
+		   relying on calling a default compile recipe may not transfer.
+
+file: dflt_stuff_log_ex.txt, Holds a print out of running make -p
+
+
+# -- Implicit rules -- (starts line 313 of print log file)
+These targets are on by default, so if they are not explicitly over written
+in your makefile they exist with these recipes.
+
+The definitions for each of the name can be found in the defaults print out
+and use definitions that can be altered by a makefile which may include
+not seen definitions found in the LINK.o COMPILE.c etc.
+=====
+%.out:
+
+%.a:
+
+%.ln:
+
+%.o:
+
+%: %.o
+#  recipe to execute (built-in):
+	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.c:
+
+%: %.c
+#  recipe to execute (built-in):
+	$(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.ln: %.c
+#  recipe to execute (built-in):
+	$(LINT.c) -C$* $<
+
+%.o: %.c
+#  recipe to execute (built-in):
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
+
+%.cc:
+
+%: %.cc
+#  recipe to execute (built-in):
+	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.cc
+#  recipe to execute (built-in):
+	$(COMPILE.cc) $(OUTPUT_OPTION) $<
+
+%.C:
+
+%: %.C
+#  recipe to execute (built-in):
+	$(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.C
+#  recipe to execute (built-in):
+	$(COMPILE.C) $(OUTPUT_OPTION) $<
+=====

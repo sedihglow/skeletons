@@ -1,0 +1,22 @@
+make manual: https://www.gnu.org/software/make/manual/make.pdf
+
+--- $? ----
+
+In this example, 'make print' will print all the '.c' files
+- that have changed since the last time you printed them -
+
+print: *.c
+	lpr  -p $?
+
+-- what $? does --
+
+page 131
+
+$? is the names of all the prerequisites that are newer than the target,
+with spaces between them.
+	If target doesnt exist, all prerequisites will be included.
+	Works for archives too, example in docs.
+
+Basically, print being the target, *.c being the prerequisites for the target,
+$? is an automatic variable wich is the name of all the .c files with spaces
+between the names.

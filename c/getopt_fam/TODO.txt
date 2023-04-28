@@ -1,0 +1,17 @@
+-- getopt global --
+- write a script that calls and runs the tests for each getopt family example
+  - The pass check should be in the scripts this one calls for each of the
+	examples
+
+- makefile to build each example and run/clean/etc either all at once or
+  individually.
+  - the makefile will run the test program/script for the make run option.
+  - probably figure out a way to include valgrind and gdb or something.
+
+
+--- getopt() ---
+  - makes sure all cases with example is written (like optstrs)
+	- Test call cases, make a test script in bash
+	  - find a way to nicely make sure all test cases produced the expected
+		result and report ones that did not occur.
+	
