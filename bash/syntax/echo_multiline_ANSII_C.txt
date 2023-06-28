@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+While writing up some testing arounf with getopts and setting globals inside
+a function calling getopt, i figured out some things about multi-line shit
+with the echo command.
+
+
+
+# in case handling opt from getopts
+a) 
+	echo "IN A BLOCK - "
+	arg_file=$OPTARG
+
+	# '\' allows for the multiline code, it also adds a ' ' with echo.
+	# Unless noted later, unknown if this applies to the string syntax
+	# in general
+	echo -e "optarg: $OPTARG\n"\
+		"arg_file: $arg_file"
