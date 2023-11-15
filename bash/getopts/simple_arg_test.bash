@@ -13,7 +13,6 @@ getopts_parse()
 			echo -e "optarg: $OPTARG\n"\
 				 "\barg_file: $arg_file\n"\
 				 "\bThird time through"
-			
 			;;
 
 		b) 

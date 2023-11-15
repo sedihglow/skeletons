@@ -27,7 +27,7 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-#printf "$TEMP\n"
+printf "$TEMP\n"
 
 # Note the quotes around "$TEMP": they are essential!
 eval set -- "$TEMP"
